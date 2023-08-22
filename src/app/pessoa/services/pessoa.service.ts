@@ -39,4 +39,10 @@ export class PessoaService {
 
     localStorage[LS_CHAVE] = JSON.stringify(pessoas);
   }
+
+  remover(id: number): void {
+    let pessoas: Pessoa[] = this.listaTodos();
+    pessoas = pessoas.filter((pessoa) => pessoa.id !== id);
+    localStorage[LS_CHAVE] = JSON.stringify(pessoas);
+  }
 }
