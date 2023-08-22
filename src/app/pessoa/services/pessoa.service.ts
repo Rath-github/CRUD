@@ -9,4 +9,9 @@ const LS_CHAVE: string = 'pessoas';
 })
 export class PessoaService {
   constructor() {}
+
+  listaTodos(): Pessoa[] {
+    const pessoas = localStorage[LS_CHAVE];
+    return pessoas ? JSON.parse(pessoas) : [];
+  }
 }
