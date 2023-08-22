@@ -14,4 +14,13 @@ export class PessoaService {
     const pessoas = localStorage[LS_CHAVE];
     return pessoas ? JSON.parse(pessoas) : [];
   }
+
+  inserir(pessoa: Pessoa): void {
+    const pessoas = this.listaTodos();
+
+    pessoa.id = new Date().getTime();
+    pessoas.push(pessoa);
+
+    localStorage[LS_CHAVE] = JSON.stringify(pessoas);
+  }
 }
