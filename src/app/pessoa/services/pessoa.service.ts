@@ -28,4 +28,15 @@ export class PessoaService {
     const pessoas: Pessoa[] = this.listaTodos();
     return pessoas.find((pessoa) => pessoa.id === id);
   }
+
+  atualizar(pessoa: Pessoa): void {
+    const pessoas: Pessoa[] = this.listaTodos();
+    pessoas.forEach((obj, index, objs) => {
+      if (pessoa.id === obj.id) {
+        objs[index] = pessoa;
+      }
+    });
+
+    localStorage[LS_CHAVE] = JSON.stringify(pessoas);
+  }
 }
